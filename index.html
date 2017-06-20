@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Test Server Node.js</title>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+        var socket = io();
+
+            socket.on('auto', function(data){
+            console.log(data.hello);
+            socket.emit('android', { temp: '23 gradi - da client a server' });
+        });
+
+        </script>
+    </head>
+    <body>
+
+<h1>INDEX</h1>
+
+    </body>
+</html>

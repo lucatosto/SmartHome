@@ -22,6 +22,15 @@ app.get(['/test'], function(req, res){
   console.log("dati: "+data.temp);
 });
 
+
+app.get(['/mqtt'], function(req, res){
+  var data = {temp: '23'}
+
+  var comando = "on";
+
+  console.log("Sto accendendo la lampadina");
+});
+
 io.on('connection', function(socket){
   console.log('auto connessa');
     socket.emit('auto', { hello: 'questa è la risposta del server al client',

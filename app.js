@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const port = $PORT;
+
+const port = process.env.PORT || '3100';
+app.set('port', port);
+console.log("server start at port:", port);
 
 http.listen(port, function(){
     console.log('listening on *:'+port);
@@ -28,3 +31,5 @@ io.on('connection', function(socket){
         console.log(data.temp);
   });
 });
+
+module.exports = app;

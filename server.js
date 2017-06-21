@@ -1,13 +1,13 @@
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
-  mongo = process.env.MONGOLAB_URI || 'mongodb://localhost/Tododb',
+//  mongo = process.env.MONGOLAB_URI || 'mongodb://localhost/Tododb',
   mongoose = require('mongoose'),
   Task = require('./api/models/listModel'),
   bodyParser = require('body-parser');
 
-mongoose.Promise = global.Promise;
-mongoose.connect(mongo);
+//mongoose.Promise = global.Promise;
+//mongoose.connect(mongo);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));

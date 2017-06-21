@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "mongod && npm run start && nodemon server.js"
-
+    "start": "node server.js"
   },
   "author": "Tosto, Sciacca, Leotta",
   "license": "ISC",

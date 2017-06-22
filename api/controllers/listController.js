@@ -56,7 +56,7 @@ exports.delete_a_task = function(req, res) {
 exports.test_communication = function(req, res){
 
     res.json(
-      {message: "U sucu do pollu!"}
+      {message: "SBURRO!"}
     );
 
     var mqtt = require('mqtt'), url = require('url');

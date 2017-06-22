@@ -4,9 +4,9 @@
   "description": "Tesina Sistemi Embedded",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm install mqtt && mkdir -p /data/db && mongod",
+    "prestart": "mkdir -p /data/db && mongod",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "npm install mqtt && nodemon server.js"
   },
   "author": "Tosto, Sciacca, Leotta",
   "license": "ISC",

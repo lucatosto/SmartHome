@@ -67,10 +67,10 @@ exports.test_communication = function(req, res){
     //email: aikon_89@hotmail.it
     //pass: sistemiembedded
     var options = {
-      port: 18471,
+      port: 11914,
       clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-      username: 'nulfupjf',
-      password: '7yPEm2Sjd8Au'
+      username: 'yigqtcwy',
+      password: 'cqnOzCX8sbff'
     };
 
 

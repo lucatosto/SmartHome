@@ -4,6 +4,7 @@
   "description": "Tesina Sistemi Embedded",
   "main": "index.js",
   "scripts": {
+    "prestart": "start mongod",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },

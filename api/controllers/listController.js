@@ -56,7 +56,7 @@ exports.delete_a_task = function(req, res) {
 exports.test_communication = function(req, res){
 
     res.json(
-      {message: "Eccolo!"}
+      {message: "SBURRO!"}
     );
 
     var mqtt = require('mqtt'), url = require('url');
@@ -67,10 +67,10 @@ exports.test_communication = function(req, res){
     //email: aikon_89@hotmail.it
     //pass: sistemiembedded
     var options = {
-      port: 11914,
+      port: 18471,
       clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-      username: 'yigqtcwy',
-      password: 'cqnOzCX8sbff'
+      username: 'nulfupjf',
+      password: '7yPEm2Sjd8Au'
     };
 
 

@@ -54,6 +54,9 @@ exports.delete_a_task = function(req, res) {
 };
 
 exports.test_communication = function(req, res){
+
+    res.json({message: "U sucu do pollu!"})
+
     console.log("Ho ricevuto questo: \n")
     console.log(req.body);
 };

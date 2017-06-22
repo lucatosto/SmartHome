@@ -60,17 +60,17 @@ exports.test_communication = function(req, res){
     );
 
     var mqtt = require('mqtt'), url = require('url');
-    var url = "mqtt://" + "m12.cloudmqtt.com";
+    var url = "mqtt://" + "m10.cloudmqtt.com";
 
 
     //https://www.cloudmqtt.com/
     //email: aikon_89@hotmail.it
     //pass: sistemiembedded
     var options = {
-      port: 11914,
+      port: 18471,
       clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-      username: 'yigqtcwy',
-      password: 'cqnOzCX8sbff'
+      username: 'nulfupjf',
+      password: '7yPEm2Sjd8Au'
     };
 
 

@@ -49,14 +49,14 @@ exports.delete_a_task = function(req, res) {
   }, function(err, task) {
     if (err)
       res.send(err);
-    res.json({ message: 'Task successfully deleted' });
+    res.json({ message: 'Task eliminato' });
   });
 };
 
 exports.test_communication = function(req, res){
 
     res.json(
-      {message: "SBURRO!"}
+      {message: "Inviato!"}
     );
 
     var mqtt = require('mqtt'), url = require('url');
@@ -74,7 +74,7 @@ exports.test_communication = function(req, res){
     };
 
 
-    var my_message = 'U sucu do pollu'; //my command
+    var my_message = 'Ricevuto!'; //my command
     var pub_topic = 'cmd/actuator/on/';
     var rcv_topic = 'receive/actuator';
 
@@ -83,21 +83,21 @@ exports.test_communication = function(req, res){
     // Create a client connection
     var client = mqtt.connect(url, options);
     try {
-    	console.log('Client mqtt create;\n');
+    	console.log('Client mqtt creato;\n');
     	client.on('connect', function() { // When connected
-    	console.log('connect;\n');
+    	console.log('connesso;\n');
 
     	// subscribe to a topic
     	  client.subscribe(pub_topic, function() {
     	    // when a message arrives, do something with it
     	    client.on('message', function(topic, message, packet) {
-    	      console.log("Received '" + message + "' on '" + topic + "'");
+    	      console.log("Ricevuto '" + message + "' su '" + topic + "'");
     	    });
     	  });
 
     	// publish a message to a topic
     	  client.publish(pub_topic, my_message +' '+ new Date().toString(), function() {
-    	    console.log("Message is published");
+    	    console.log("Message pubblicato");
     	    //client.end(); // Close the connection when published
     	  });
     	});

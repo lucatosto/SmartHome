@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 
 var Profilo = new Schema({
   id:{
-    type: int,
+    type: String,
     Required: 'Inserisci id Profilo'
   },
   temperatura:{
-    type: int,
+    type: String,
     Required: 'Inserisci temperatura',
   },
   musica:{

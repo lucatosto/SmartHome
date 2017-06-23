@@ -23,7 +23,7 @@ var TaskSchema = new Schema({
 
 var Sensore = new Schema({
   valore: {
-    type: int,
+    type: String,
     Required: 'inserisci valore'
   },
   Created_date: {
@@ -37,21 +37,5 @@ var Sensore = new Schema({
 });
 
 
-var Profilo = new Schema({
-  id:{
-    type: String,
-    Required: 'Inserisci id Profilo'
-  },
-  temperatura:{
-    type: int,
-    Required: 'Inserisci temperatura',
-  },
-  musica:{
-    type: String,
-    Required: 'Inserisci genere musicale'
-  }
-});
-
 module.exports = mongoose.model('Tasks', TaskSchema);
 module.exports = mongoose.model('Sensori', Sensore);
-module.exports = mongoose.model('Profili', Profilo);

@@ -1,11 +1,10 @@
 'use strict';
 
-
 var mongoose = require('mongoose'),
     Profilo = mongoose.model('Profili');
 
 exports.list_all_profile = function(req, res) {
-  Profilo.find({}, function(err, task) {
+  Profilo.find({}, function(err, profilo) {
     if (err)
       res.send(err);
     res.json(profilo);
@@ -14,15 +13,15 @@ exports.list_all_profile = function(req, res) {
 
 exports.create_a_profile = function(req, res) {
   var new_profile = new Profilo(req.body);
-  new_profile.save(function(err, profile) {
+  new_profile.save(function(err, profilo) {
     if (err)
       res.send(err);
-    res.json(profile);
+    res.json(profilo);
   });
 };
 
 exports.read_a_profile = function(req, res) {
-  Profilo.findById(req.params.id, function(err, profile) {
+  Profilo.findById(req.params.id, function(err, profilo) {
     if (err)
       res.send(err);
     res.json(profilo);
@@ -31,20 +30,9 @@ exports.read_a_profile = function(req, res) {
 
 
 exports.update_a_profile = function(req, res) {
-  Profilo.findOneAndUpdate(req.params.id, req.body, {new: true}, function(err, task) {
+  Profilo.findOneAndUpdate(req.params.id, req.body, {new: true}, function(err, profilo) {
     if (err)
       res.send(err);
     res.json(profilo);
-  });
-};
-
-
-exports.delete_a_profile = function(req, res) {
-  Profilo.remove({
-    _id: req.params.id
-  }, function(err, profile) {
-    if (err)
-      res.send(err);
-    res.json({ message: 'Profilo eliminato' });
   });
 };

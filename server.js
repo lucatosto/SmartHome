@@ -1,7 +1,7 @@
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
-  mongo = process.env.MONGODB_URI || "mongodb://localhost", // Make sure to replace that URI with the one provided by MongoLab
+  mongo = process.env.MONGODB_URI || "mongodb://localhost",
   mongoose = require('mongoose'),
   Task = require('./api/models/listModel'),
   bodyParser = require('body-parser');
@@ -21,4 +21,4 @@ routes(app);
 app.listen(port);
 
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('Il Server di SmartHome è up sulla porta: ' + port);

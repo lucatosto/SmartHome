@@ -15,7 +15,8 @@ module.exports = function(app) {
 
   app.route('/test')
     .get(todoList.test_communication)
-    
+    .post(todoList.test_communication_data)
+
 
   app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})

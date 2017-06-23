@@ -4,6 +4,22 @@
 var mongoose = require('mongoose'),
   Task = mongoose.model('Tasks');
 
+var mqtt = require('mqtt'), url = require('url');
+var url = "mqtt://" + "m10.cloudmqtt.com";
+
+var options = {
+    port: 18471,
+    clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
+    username: 'nulfupjf',
+    password: '7yPEm2Sjd8Au'
+};
+
+var my_message = 'Ricevuto! - Messaggio presente in API'; //my command
+var pub_topic = 'cmd/actuator/on/';
+var rcv_topic = 'receive/actuator';
+pub_topic=rcv_topic;
+
+
 exports.list_all_tasks = function(req, res) {
   Task.find({}, function(err, task) {
     if (err)
@@ -56,25 +72,10 @@ exports.delete_a_task = function(req, res) {
 exports.test_communication = function(req, res){
 
     res.json(
-      {message: "Inviato!"}
+      {message: "Messaggio che viene dall'API!"}
     );
 
-    var mqtt = require('mqtt'), url = require('url');
-    var url = "mqtt://" + "m10.cloudmqtt.com";
-
-
-    //https://www.cloudmqtt.com/
-    //email: aikon_89@hotmail.it
-    //pass: sistemiembedded
-    var options = {
-      port: 18471,
-      clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-      username: 'nulfupjf',
-      password: '7yPEm2Sjd8Au'
-    };
-
-
-    var my_message = 'Ricevuto!'; //my command
+    var my_message = 'Ricevuto! - Messaggio presente in API'; //my command
     var pub_topic = 'cmd/actuator/on/';
     var rcv_topic = 'receive/actuator';
 
@@ -91,7 +92,7 @@ exports.test_communication = function(req, res){
     	  client.subscribe(pub_topic, function() {
     	    // when a message arrives, do something with it
     	    client.on('message', function(topic, message, packet) {
-    	      console.log("Ricevuto '" + message + "' su '" + topic + "'");
+    	      console.log("Ricevuto '" + message + "' su '" + topic + "'" + "MESSAGGIO ARRIVATO DA CLOUDMQTT");
     	    });
     	  });
 
@@ -106,6 +107,36 @@ exports.test_communication = function(req, res){
 
         } catch (err) {
         	console.log(err)
+    }
+    console.log("Ho inviato tutto su cloud mqtt. ")
+};
+
+
+exports.test_communication_data = function(req, res){
+    var dato = req.body;
+    console.log(dato);
+
+    res.json(
+      {message: "Ho ricevuto: "+dato}
+    );
+
+    var client = mqtt.connect(url, options);
+    try {
+    	console.log('Client mqtt creato;\n');
+    	client.on('connect', function() {
+    	  console.log('connesso;\n');
+    	  client.subscribe(pub_topic, function() {
+    	    client.on('message', function(topic, message, packet) {
+    	      console.log("Ricevuto '" + message + "' su '" + topic + "'" + "MESSAGGIO ARRIVATO DA CLOUDMQTT");
+    	    });
+    	  });
+    	client.publish(pub_topic, dato +'  <-- dato ricevuto ', function() {
+    	  console.log("Message pubblicato SU MQTTCLOUD");
+    	    //client.end(); // Close the connection when published
+    	 });
+    	});
+    } catch (err) {
+        console.log(err)
     }
     console.log("Ho inviato tutto su cloud mqtt. ")
 };

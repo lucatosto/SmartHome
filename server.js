@@ -4,6 +4,7 @@ var express = require('express'),
   mongo = process.env.MONGODB_URI || "mongodb://localhost",
   mongoose = require('mongoose'),
   Task = require('./api/models/listModel'),
+  Profilo = require('./api/models/profileModel'),
   bodyParser = require('body-parser');
 
   mongoose.Promise = global.Promise;
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var routes = require('./api/routes/listRoutes');
+var routes = require('./api/routes/routes');
 routes(app);
 
 

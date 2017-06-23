@@ -114,10 +114,10 @@ exports.test_communication = function(req, res){
 
 exports.test_communication_data = function(req, res){
     var dato = req.body;
-    console.log(dato);
+    console.log(dato.temperatura);
 
     res.json(
-      {message: "Ho ricevuto: "+dato}
+      {message: "Ho ricevuto la temperatura: "+dato.temperatura}
     );
 
     var client = mqtt.connect(url, options);
@@ -130,7 +130,7 @@ exports.test_communication_data = function(req, res){
     	      console.log("Ricevuto '" + message + "' su '" + topic + "'" + "MESSAGGIO ARRIVATO DA CLOUDMQTT");
     	    });
     	  });
-    	client.publish(pub_topic, dato +'  <-- dato ricevuto ', function() {
+    	client.publish(pub_topic, dato.temperatura +'  <-- dato temperatura ricevuto ', function() {
     	  console.log("Message pubblicato SU MQTTCLOUD");
     	    //client.end(); // Close the connection when published
     	 });

@@ -119,4 +119,6 @@ exports.test_communication_data = function(req, res){
     res.json(
       {message: "Ho ricevuto : "+dato}
     );
+
+    console.log("---->"+dato)
 };

@@ -7,7 +7,7 @@ var Profilo = new Schema({
     type: String,
     Required: 'Inserisci id Profilo'
   },
-    sensor_value:{
+  sensor_value:{
     type: String,
     Required: 'Inserisci temperatura',
   },

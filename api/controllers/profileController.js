@@ -18,10 +18,12 @@ exports.list_all_profile = function(req, res) {
 };
 
 exports.create_a_profile = function(req, res) {
-  var profilo = new Profilo(req.body);
+  var new_profile = new Profilo(req.body);
 
-  var dato = req.body.name;
-  var dato2 = req.body.surname;
+  var dato = req.body.id;
+  var dato2 = req.body.temperatura;
+  var dato3 = req.body.musica;
+  var dato4 = req.body.luminanza;
 
 
   res.json(
@@ -29,7 +31,7 @@ exports.create_a_profile = function(req, res) {
       message: "Questa è la response del server"}
   );
 
-  console.log("dato: --->"+dato+"dato2: --->"+dato2);
+  console.log("dato: --->"+dato+"dato2: --->"+dato2+"dato3: --->"+dato3+"dato4: --->"+dato4);
 
 
 

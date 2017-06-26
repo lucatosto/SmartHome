@@ -133,7 +133,7 @@ exports.test_communication_data = function(req, res){
     	  });
     	client.publish(pub_topic, dato.temperatura +'  <-- dato temperatura ricevuto ', function() {
     	  console.log("Message pubblicato SU MQTTCLOUD");
-    	    //client.end(); // Close the connection when published
+    	    client.end(); // Close the connection when published
     	 });
     	});
     } catch (err) {

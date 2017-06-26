@@ -100,7 +100,7 @@ exports.test_communication = function(req, res){
     	// publish a message to a topic
     	  client.publish(pub_topic, my_message +' '+ new Date().toString(), function() {
     	    console.log("Message pubblicato");
-    	    //client.end(); // Close the connection when published
+    	    client.end(); // Close the connection when published
     	  });
     	});
 

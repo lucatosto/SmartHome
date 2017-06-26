@@ -23,3 +23,9 @@ app.listen(port);
 
 
 console.log('Il Server di SmartHome è up sulla porta: ' + port);
+
+
+
+//coordinate casa
+//ltd= 37.5258268
+//lng= 15.0747295

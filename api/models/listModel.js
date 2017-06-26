@@ -21,20 +21,6 @@ var TaskSchema = new Schema({
   }
 });
 
-var Sensore = new Schema({
-  valore: {
-    type: String,
-    Required: 'inserisci valore'
-  },
-  Created_date: {
-    type: Date,
-    default: Date.now
-  },
-  type: {
-      type: String,
-      enum: ['temperatura', 'pressione', 'localizzazione']
-    }
-});
 
 
 module.exports = mongoose.model('Tasks', TaskSchema);

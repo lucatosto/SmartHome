@@ -2,8 +2,7 @@
 
 
 var mongoose = require('mongoose'),
-    Task = mongoose.model('Tasks'),
-    Sensore = mongoose.model('Sensori');
+    Task = mongoose.model('Tasks');
 
 var mqtt = require('mqtt'), url = require('url');
 var url = "mqtt://" + "m10.cloudmqtt.com";

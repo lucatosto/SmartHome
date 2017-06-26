@@ -114,13 +114,13 @@ exports.test_communication = function(req, res){
 
 
 exports.test_communication_data = function(req, res){
-    var dato = req.params.name;
-    var dato2 = req.body.name;
+    var dato = req.body.name;
+    var dato2 = req.body.surname;
 
 
     res.json(
       {message: "Ho ricevuto dato : "+dato+ "dato2: "+dato2}
     );
 
-    console.log("---->"+dato+"---->2:"+dato2);
+    console.log("dato: --->"+dato+"dato2: --->"+dato2);
 };

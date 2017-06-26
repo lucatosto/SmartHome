@@ -114,7 +114,7 @@ exports.test_communication = function(req, res){
 
 
 exports.test_communication_data = function(req, res){
-    var dato = req.params.musica;
+    var dato = req.params;
 
     res.json(
       {message: "Ho ricevuto : "+dato}

@@ -31,9 +31,7 @@ exports.create_a_profile = function(req, res) {
       message: "Questa è la response del server"}
   );
 
-  console.log("dato: --->"+dato+"dato2: --->"+dato2+"dato3: --->"+dato3+"dato4: --->"+dato4);
-
-
+  console.log("dato: --->"+dato+" dato2: --->"+dato2+" dato3: --->"+dato3+" dato4: --->"+dato4);
 
   new_profile.save(function(err, profilo) {
     if (err)

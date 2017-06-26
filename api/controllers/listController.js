@@ -119,7 +119,8 @@ exports.test_communication_data = function(req, res){
 
 
     res.json(
-      {message: "Ho ricevuto dato : "+dato+ "dato2: "+dato2}
+      {
+        message: "Questa è la response del server"}
     );
 
     console.log("dato: --->"+dato+"dato2: --->"+dato2);

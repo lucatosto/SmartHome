@@ -115,29 +115,8 @@ exports.test_communication = function(req, res){
 
 exports.test_communication_data = function(req, res){
     var dato = req.body;
-    console.log(dato.temperatura);
 
     res.json(
-      {message: "Ho ricevuto la temperatura: "+dato.temperatura}
+      {message: "Ho ricevuto : "+dato}
     );
-
-    var client = mqtt.connect(url, options);
-    try {
-    	console.log('Client mqtt creato;\n');
-    	client.on('connect', function() {
-    	  console.log('connesso;\n');
-    	  client.subscribe(pub_topic, function() {
-    	    client.on('message', function(topic, message, packet) {
-    	      console.log("Ricevuto '" + message + "' su '" + topic + "'" + "MESSAGGIO ARRIVATO DA CLOUDMQTT");
-    	    });
-    	  });
-    	client.publish(pub_topic, dato.temperatura +'  <-- dato temperatura ricevuto ', function() {
-    	  console.log("Message pubblicato SU MQTTCLOUD");
-    	    client.end(); // Close the connection when published
-    	 });
-    	});
-    } catch (err) {
-        console.log(err)
-    }
-    console.log("Ho inviato tutto su cloud mqtt. ")
 };

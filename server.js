@@ -1,8 +1,8 @@
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
-  mongo = process.env.MONGODB_URI || "mongodb://localhost",
-  mongoose = require('mongoose'),
+  //mongo = process.env.MONGODB_URI || "mongodb://localhost",
+  //mongoose = require('mongoose'),
   Task = require('./api/models/listModel'),
   Profilo = require('./api/models/profileModel'),
   bodyParser = require('body-parser');
